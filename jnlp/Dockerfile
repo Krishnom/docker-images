@@ -32,9 +32,15 @@ RUN pip install --user ansible && \
     pip install --user pywinrm && \
     pip install --user pywinrm[kerberos] && \
     pip install awsebcli --upgrade --user && \
-    pip install urllib3 --upgrade --user
+    pip install urllib3 --upgrade --user && \
+    pip install fortiosapi --upgrade --user && \
+    pip install hvac --upgrade --user
+
+
 
 ENV PATH "$PATH:/home/$user/.local/bin"
+
+RUN ansible-galaxy collection install community.general
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
 #CMD ["bash"]
