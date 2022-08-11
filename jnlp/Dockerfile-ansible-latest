@@ -6,7 +6,7 @@ ARG user=jenkins
 USER root
 ENV DEBIAN_FRONTEND=noninteractive
 
-#apt-get requires root privileges.
+#apt-get requires root previledges.
 RUN   apt-get update && \
       apt-get install -y curl gcc python3-dev libkrb5-dev && \
       apt-get install -y python3-pip && \
@@ -28,7 +28,7 @@ RUN pip install --upgrade pip && \
     pip install --upgrade virtualenv
 
 #Install Ansible
-RUN pip install --user ansible==2.9.27 && \
+RUN pip install --user ansible && \
     pip install --user pywinrm && \
     pip install --user pywinrm[kerberos] && \
     pip install awsebcli --upgrade --user && \
@@ -37,7 +37,10 @@ RUN pip install --user ansible==2.9.27 && \
     pip install hvac --upgrade --user
 
 
+
 ENV PATH "$PATH:/home/$user/.local/bin"
+
+RUN ansible-galaxy collection install community.general
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
 #CMD ["bash"]

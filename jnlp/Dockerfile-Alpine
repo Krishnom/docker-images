@@ -1,6 +1,0 @@
-FROM jenkins/inbound-agent:latest-alpine-jdk11
-ARG user=jenkins
-
-USER root
-RUN apk update && apk add ansible
-USER ${user}
