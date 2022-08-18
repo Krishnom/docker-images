@@ -34,13 +34,15 @@ RUN pip install --user ansible && \
     pip install awsebcli --upgrade --user && \
     pip install urllib3 --upgrade --user && \
     pip install fortiosapi --upgrade --user && \
-    pip install hvac --upgrade --user
-
-
+    pip install hvac --upgrade --user && \
+    pip install ncclient && \
+    pip install awscli --upgrade --user && \
+    pip install zabbix-api --upgrade --user
 
 ENV PATH "$PATH:/home/$user/.local/bin"
 
-RUN ansible-galaxy collection install community.general
+RUN ansible-galaxy collection install community.general && \
+    ansible-galaxy collection install junipernetworks.junos
 
 ENTRYPOINT ["/usr/local/bin/jenkins-agent"]
 #CMD ["bash"]
