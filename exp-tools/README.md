@@ -1,3 +1,5 @@
+# Docker file for jenkins agent with common tools used by experitest jenkins jobs
+
 ### Building an image
 #### If docker file name is Dockerfile
 ```bash
