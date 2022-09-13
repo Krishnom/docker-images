@@ -29,8 +29,8 @@ RUN wget https://releases.hashicorp.com/terraform/1.2.8/terraform_1.2.8_linux_ar
 
 # Move to local bin
 RUN mv terraform /usr/local/bin/
-# Check that it's installed
-RUN terraform --version
+## Check that it's installed
+#RUN terraform --version
 
 USER ${user}
 RUN pip install --upgrade pip && \
