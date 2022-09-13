@@ -15,6 +15,7 @@ RUN         apt-get install -y postgresql-client
 RUN         apt-get install unzip wget -y
 RUN         apt-get install jq -y
 RUN         apt-get install poppler-utils -y  #pdfinfo binary for barclays reporting jobs
+RUN         apt-get install vim -y
 #Set python3 to default
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
