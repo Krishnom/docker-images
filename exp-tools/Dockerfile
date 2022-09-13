@@ -14,7 +14,7 @@ RUN         apt-get install -y sshpass  krb5-user
 RUN         apt-get install -y postgresql-client
 RUN         apt-get install unzip wget -y
 RUN         apt-get install jq -y
-
+RUN         apt-get install poppler-utils -y  #pdfinfo binary for barclays reporting jobs
 #Set python3 to default
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
 
