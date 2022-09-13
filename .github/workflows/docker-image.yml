@@ -22,6 +22,8 @@ jobs:
           docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build the Docker image
         working-directory: ./exp-tools
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
         run: docker build . --file Dockerfile --tag $DOCKER_USER/experitest-jnlp:latest
 
       - name: Docker Push
