@@ -7,12 +7,13 @@ USER root
 ENV DEBIAN_FRONTEND=noninteractive
 
 #apt-get requires root previledges.
-RUN   apt-get update && \
-      apt-get install -y curl gcc python3-dev libkrb5-dev && \
-      apt-get install -y python3-pip python3-venv && \
-      apt-get install -y sshpass  krb5-user && \
-      apt-get install -y postgresql-client && \
-      apt-get install unzip wget -y
+RUN         apt-get update
+RUN         apt-get install -y curl gcc python3-dev libkrb5-dev
+RUN         apt-get install -y python3-pip python3-venv
+RUN         apt-get install -y sshpass  krb5-user
+RUN         apt-get install -y postgresql-client
+RUN         apt-get install unzip wget -y
+RUN         apt-get install jq -y
 
 #Set python3 to default
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python3 1
