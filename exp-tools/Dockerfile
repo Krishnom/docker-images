@@ -48,6 +48,7 @@ RUN pip install --user ansible && \
     pip install ncclient --upgrade --user && \
     pip install awscli --upgrade --user && \
     pip install zabbix-api --upgrade --user && \
+    pip install dnspython --upgrade --user && \
     pip install pyvmomi
 
 ENV PATH "$PATH:/home/$user/.local/bin"
